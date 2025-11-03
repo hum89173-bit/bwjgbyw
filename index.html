@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>PIN 码生成器</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 20px; background-color: #f5f5f7; color: #333; }
+        .container { max-width: 600px; margin: 40px auto; padding: 30px; background-color: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #1d1d1f; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; }
+        input { width: 100%; padding: 12px; font-size: 16px; border: 1px solid #d2d2d7; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 14px; font-size: 16px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; background-color: #007aff; color: white; transition: background-color 0.2s; }
+        button:hover { background-color: #0071e3; }
+        #result { margin-top: 30px; padding: 20px; background-color: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 8px; text-align: center; display: none; }
+        #pin-code { font-family: monospace; font-size: 24px; font-weight: bold; color: #2e7d32; user-select: all; }
+        .warning { background-color: #fff3e0; border-left: 4px solid #ff9800; padding: 15px; margin-bottom: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>EPhone PIN 码生成器</h1>
+        <p class="warning"><strong>仅供发布者使用。</strong> 请妥善保管您的“密钥盐”。</p>
+
+        <div class="form-group">
+            <label for="deviceId">用户设备ID:</label>
+            <input type="text" id="deviceId" placeholder="粘贴从用户那里获取的设备ID">
+        </div>
+        
+        <div class="form-group">
+            <label for="secretSalt">你的密钥盐 (Secret Salt):</label>
+            <input type="password" id="secretSalt" placeholder="输入一个只有你知道的秘密字符串">
+        </div>
+
+        <button id="generateBtn">生成PIN码</button>
+        
+        <div id="result">
+            <p>为该设备生成的PIN码是:</p>
+            <p id="pin-code"></p>
+        </div>
+    </div>
+
+    <script>
+function _0x2a0f(){const _0x2df037=['display','result','textContent','12420IZmqUU','8128048FNZPBy','生成失败:\x20','block','style','bu_wan_jiu_guan_bu_yao_huo_qu','toUpperCase','trim','17246867IXlhrY','78qRPyDQ','12225UwuBAv','subtle','addEventListener','1149498EXKBRr','1885lvhhzf','secretSalt','click','padStart','请输入你的密钥盐。','message','from','value','643272JzvBMP','334ptmhjl','encode','getElementById','548860UVByCj','substring','deviceId','generateBtn','pin-code','20nUvnoC','SHA-256','设备ID和密钥盐不能为空。'];_0x2a0f=function(){return _0x2df037;};return _0x2a0f();}const _0x350583=_0x3e87;(function(_0x19fbf9,_0x456902){const _0x17289e=_0x3e87,_0x3a9621=_0x19fbf9();while(!![]){try{const _0x459ece=parseInt(_0x17289e(0xf8))/0x1+-parseInt(_0x17289e(0xf5))/0x2*(-parseInt(_0x17289e(0x10d))/0x3)+parseInt(_0x17289e(0x103))/0x4*(parseInt(_0x17289e(0xec))/0x5)+parseInt(_0x17289e(0x10c))/0x6*(parseInt(_0x17289e(0xf4))/0x7)+-parseInt(_0x17289e(0x104))/0x8+parseInt(_0x17289e(0xeb))/0x9*(-parseInt(_0x17289e(0xfd))/0xa)+-parseInt(_0x17289e(0x10b))/0xb;if(_0x459ece===_0x456902)break;else _0x3a9621['push'](_0x3a9621['shift']());}catch(_0x3ba4fd){_0x3a9621['push'](_0x3a9621['shift']());}}}(_0x2a0f,0xb8647));const PREFILLED_SALT=_0x350583(0x108),deviceIdInput=document[_0x350583(0xf7)](_0x350583(0xfa)),secretSaltInput=document[_0x350583(0xf7)](_0x350583(0xed)),generateBtn=document['getElementById'](_0x350583(0xfb)),resultDiv=document[_0x350583(0xf7)](_0x350583(0x101)),pinCodeEl=document[_0x350583(0xf7)](_0x350583(0xfc));function _0x3e87(_0x3d0779,_0x1612d9){const _0x2a0fdf=_0x2a0f();return _0x3e87=function(_0x3e875b,_0x1fe6b5){_0x3e875b=_0x3e875b-0xeb;let _0xbf4aa6=_0x2a0fdf[_0x3e875b];return _0xbf4aa6;},_0x3e87(_0x3d0779,_0x1612d9);}secretSaltInput[_0x350583(0xf3)]=PREFILLED_SALT;async function generatePin(_0x316cb5,_0xe33dc6){const _0x20988f=_0x350583;if(!_0x316cb5||!_0xe33dc6)throw new Error(_0x20988f(0xff));const _0xa6996c=_0x316cb5+_0xe33dc6,_0x21ac5f=new TextEncoder()[_0x20988f(0xf6)](_0xa6996c),_0x269494=await crypto[_0x20988f(0x10e)]['digest'](_0x20988f(0xfe),_0x21ac5f),_0x28c382=Array[_0x20988f(0xf2)](new Uint8Array(_0x269494)),_0x5954d8=_0x28c382['map'](_0x34f59e=>_0x34f59e['toString'](0x10)[_0x20988f(0xef)](0x2,'0'))['join']('');return _0x5954d8[_0x20988f(0xf9)](0x0,0x6)[_0x20988f(0x109)]();}generateBtn[_0x350583(0x10f)](_0x350583(0xee),async()=>{const _0x6bacc3=_0x350583,_0x5b3203=deviceIdInput[_0x6bacc3(0xf3)][_0x6bacc3(0x10a)](),_0x62151=secretSaltInput[_0x6bacc3(0xf3)]['trim']();if(!_0x5b3203){alert('请输入用户设备ID。');return;}if(!_0x62151){alert(_0x6bacc3(0xf0));return;}try{const _0xafccdc=await generatePin(_0x5b3203,_0x62151);pinCodeEl[_0x6bacc3(0x102)]=_0xafccdc,resultDiv[_0x6bacc3(0x107)][_0x6bacc3(0x100)]=_0x6bacc3(0x106);}catch(_0x29a762){alert(_0x6bacc3(0x105)+_0x29a762[_0x6bacc3(0xf1)]);}});
+    </script>
+
+</body>
+</html>
